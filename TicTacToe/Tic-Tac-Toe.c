@@ -4,7 +4,7 @@ void displayBoard ();
 void input ();
 void win ();
 
-int player1 = 0, playerSelector = 1; //Player1 decides who wins
+int player1 = 0, playerSelector = 1, turnCount = 0; //Player1 decides who wins
 char TicTacToe [3][3],character; //TicTacToe boardgame
 
 int main(){
@@ -21,7 +21,7 @@ int main(){
   do{
     input();
     displayBoard();
-  }while(player1 == 0); // The game ends when player1 gets the value of 1 (See the win function)
+  }while(player1 == 0 && turnCount < 9); // The game ends when player1 gets the value of 1 (See the win function)
   //Displays the winner
   if(player1 == 1 && character == 88)
     printf("Player 1 WINS\n");
@@ -64,48 +64,66 @@ void input (){
   //Translate the human pick to a two dimension array location
   switch (iBox) {
     case 1:
-      if(TicTacToe[0][0] == 49) //Checks if the box its occupied by the other player
+      if(TicTacToe[0][0] == 49){ //Checks if the box its occupied by the other player
         TicTacToe[0][0] = character;
+        turnCount++;
+      }
       else playerSelector--; //If it is player selector is goig to be initialized by the current player value
     break;
     case 2:
-      if(TicTacToe[0][1] == 50)
+      if(TicTacToe[0][1] == 50){
         TicTacToe[0][1] = character;
+        turnCount++;
+      }
       else playerSelector--;
     break;
     case 3:
-      if(TicTacToe[0][2] == 51)
+      if(TicTacToe[0][2] == 51){
         TicTacToe[0][2] = character;
+        turnCount++;
+      }
       else playerSelector--;
     break;
     case 4:
-      if(TicTacToe[1][0] == 52)
+      if(TicTacToe[1][0] == 52){
         TicTacToe[1][0] = character;
+        turnCount++;
+      }
       else playerSelector--;
     break;
     case 5:
-      if(TicTacToe[1][1] == 53)
+      if(TicTacToe[1][1] == 53){
         TicTacToe[1][1] = character;
+        turnCount++;
+      }
       else playerSelector--;
     break;
     case 6:
-      if(TicTacToe[1][2] == 54)
+      if(TicTacToe[1][2] == 54){
         TicTacToe[1][2] = character;
+        turnCount++;
+      }
       else playerSelector--;
     break;
     case 7:
-      if(TicTacToe[2][0] == 55)
+      if(TicTacToe[2][0] == 55){
         TicTacToe[2][0] = character;
+        turnCount++;
+      }
       else playerSelector--;
     break;
     case 8:
-      if(TicTacToe[2][1] == 56)
+      if(TicTacToe[2][1] == 56){
         TicTacToe[2][1] = character;
+        turnCount++;
+      }
       else playerSelector--;
     break;
     case 9:
-      if(TicTacToe[2][2] == 57)
+      if(TicTacToe[2][2] == 57){
         TicTacToe[2][2] = character;
+        turnCount++;
+      }
       else playerSelector--;
     break;
   }
